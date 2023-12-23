@@ -45,6 +45,7 @@ local load_core = function()
   disable_distribution_plugins()
 
   require('core.options')
+  require('core.pack')
 end
 
 load_core()
