@@ -45,7 +45,9 @@ local load_core = function()
   disable_distribution_plugins()
 
   require('core.options')
+  require('core.keymap')
   require('core.pack')
+  require('core.event')
 end
 
 load_core()

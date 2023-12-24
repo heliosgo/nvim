@@ -15,7 +15,7 @@ local load_options = function()
   vim.opt.clipboard = 'unnamedplus'
   vim.opt.wildignorecase = true
   vim.opt.wildignore =
-    '.git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**'
+  '.git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**'
   vim.opt.backup = false
   vim.opt.writebackup = false
   vim.opt.swapfile = false
@@ -27,7 +27,7 @@ local load_options = function()
   vim.opt.history = 2000
   vim.opt.shada = "!,'300,<50,@100,s10,h"
   vim.opt.backupskip =
-      '/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim'
+  '/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim'
   vim.opt.smarttab = true
   vim.opt.shiftround = true
   vim.opt.timeout = true
@@ -72,7 +72,7 @@ local load_options = function()
   vim.opt.relativenumber = true
   vim.opt.cursorline = true
   vim.opt.colorcolumn = '80'
-    
+
   -- just for nightly
   vim.opt.cmdheight = 1
   vim.opt.cmdwinheight = 5
@@ -83,7 +83,7 @@ local load_options = function()
   vim.opt.listchars = 'tab:»·,nbsp:+,trail:·,extends:→,precedes:←'
   vim.opt.pumblend = 10
   vim.opt.winblend = 10
-    
+
   vim.opt.undofile = true
   vim.opt.synmaxcol = 2500
   vim.opt.formatoptions = '1jcroql'
