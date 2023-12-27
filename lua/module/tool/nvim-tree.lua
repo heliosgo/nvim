@@ -4,7 +4,7 @@ return {
   keys = {
     { '<Leader>e', '<cmd>NvimTreeToggle<cr>' }
   },
-  dependences = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     require('nvim-tree').setup({
       disable_netrw = false,

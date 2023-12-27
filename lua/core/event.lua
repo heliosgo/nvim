@@ -1,32 +1,25 @@
-local api = vim.api
-local my_group = vim.api.nvim_create_augroup('MyGroup', {})
-
-api.nvim_create_autocmd('TextYankPost', {
-  group = my_group,
+vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
   callback = function()
     vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 400 })
   end,
 })
 
-api.nvim_create_autocmd('Filetype', {
-  group = my_group,
+vim.api.nvim_create_autocmd('Filetype', {
   pattern = '*.c,*.cpp,*.lua,*.go,*.rs,*.py,*.ts,*.tsx',
   callback = function()
     vim.cmd('syntax off')
   end,
 })
 
-api.nvim_create_autocmd('BufWritePre', {
-  group = my_group,
+vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.lua,*rs',
   callback = function()
     vim.lsp.buf.format({ async = true })
   end,
 })
 
-api.nvim_create_autocmd('BufWritePost', {
-  group = my_group,
+vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = "*.go",
   callback = function()
     local params = vim.lsp.util.make_range_params()
@@ -47,4 +40,18 @@ api.nvim_create_autocmd('BufWritePost', {
     end
     vim.cmd('silent !golines --base-formatter="gofumpt" -w %')
   end
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "NvimTree_*",
+  callback = function()
+    local layout = vim.api.nvim_call_function("winlayout", {})
+    if
+        layout[1] == "leaf"
+        and vim.api.nvim_get_option_value("filetype", { buf = vim.api.nvim_win_get_buf(layout[2]) }) == "NvimTree"
+        and layout[3] == nil
+    then
+      vim.api.nvim_command([[confirm quit]])
+    end
+  end,
 })
