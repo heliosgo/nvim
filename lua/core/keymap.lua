@@ -13,6 +13,9 @@ vim.keymap.set('n', 's', '', { silent = true })
 vim.keymap.set('n', 'sv', '<cmd>vsp<CR>', { silent = true })
 vim.keymap.set('n', 'sh', '<cmd>sp<CR>', { silent = true })
 vim.keymap.set('n', 'sc', '<C-w>c', { silent = true })
+-- j k
+vim.keymap.set('n', 'j', 'gj', { silent = true })
+vim.keymap.set('n', 'k', 'gk', { silent = true })
 
 vim.keymap.set('i', '<C-h>', '<Bs>', { silent = true })
 vim.keymap.set('i', '<C-e>', '<End>', { silent = true })
@@ -23,3 +26,5 @@ vim.keymap.set('i', '<C-d>', '<Del>', { silent = true })
 vim.keymap.set('i', '<C-p>', '<Up>', { silent = true })
 vim.keymap.set('i', '<C-n>', '<Down>', { silent = true })
 
+vim.keymap.set('v', 'j', 'gj', { silent = true })
+vim.keymap.set('v', 'k', 'gk', { silent = true })
