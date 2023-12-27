@@ -6,18 +6,19 @@ return {
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/cmp-path' },
     { 'hrsh7th/cmp-buffer' },
-    { 'hrsh7th/cmp-cmdline' }
+    { 'hrsh7th/cmp-cmdline' },
   },
   config = function()
     local has_words_before = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
       return col ~= 0
-        and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
+        and vim.api
+            .nvim_buf_get_lines(0, line - 1, line, true)[1]
             :sub(col, col)
             :match('%s')
           == nil
     end
-    local _ , cmp = pcall(require, 'cmp')
+    local _, cmp = pcall(require, 'cmp')
     if cmp == nil then
       vim.notify('cmp is not found')
       return
@@ -77,5 +78,5 @@ return {
         { name = 'cmdline' },
       }),
     })
-  end
+  end,
 }

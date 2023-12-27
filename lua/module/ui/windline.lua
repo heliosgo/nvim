@@ -1,7 +1,7 @@
 return {
   'windwp/windline.nvim',
   dependencies = {
-    { 'nvim-tree/nvim-web-devicons' }
+    { 'nvim-tree/nvim-web-devicons' },
   },
   config = function()
     local windline = require('windline')
@@ -57,9 +57,18 @@ return {
       text = function(bufnr)
         if lsp_comps.check_lsp(bufnr) then
           return {
-            { lsp_comps.lsp_error({ format = '  %s', show_zero = true }), 'red' },
-            { lsp_comps.lsp_warning({ format = '  %s', show_zero = true }), 'yellow' },
-            { lsp_comps.lsp_hint({ format = '  %s', show_zero = true }), 'blue' },
+            {
+              lsp_comps.lsp_error({ format = '  %s', show_zero = true }),
+              'red',
+            },
+            {
+              lsp_comps.lsp_warning({ format = '  %s', show_zero = true }),
+              'yellow',
+            },
+            {
+              lsp_comps.lsp_hint({ format = '  %s', show_zero = true }),
+              'blue',
+            },
           }
         end
         return ''
@@ -118,6 +127,21 @@ return {
       },
       width = breakpoint_width,
       text = function(bufnr)
+        return {
+          {
+            git_comps.diff_added({ format = '  %s', show_zero = true }),
+            'green',
+          },
+          {
+            git_comps.diff_removed({ format = '  %s', show_zero = true }),
+            'red',
+          },
+          {
+            git_comps.diff_changed({ format = '  %s', show_zero = true }),
+            'blue',
+          },
+        }
+        --[[
         if git_comps.is_git(bufnr) then
           return {
             { git_comps.diff_added({ format = '  %s', show_zero = true }), 'green' },
@@ -125,7 +149,8 @@ return {
             { git_comps.diff_changed({ format = '  %s', show_zero = true }), 'blue' },
           }
         end
-        return ''
+        --]]
+        --return ''
       end,
     }
 
@@ -140,9 +165,9 @@ return {
           end,
           { 'cyan', 'black_light' },
         },
-        { ' Total : %L ',                { 'cyan', 'black_light' } },
+        { ' Total : %L ', { 'cyan', 'black_light' } },
         { helper.separators.slant_right, { 'black_light', 'InactiveBg' } },
-        { ' ',                           { 'InactiveFg', 'InactiveBg' } },
+        { ' ', { 'InactiveFg', 'InactiveBg' } },
         basic.divider,
         { helper.separators.slant_right, { 'InactiveBg', 'black' } },
         { '🧛 ', { 'white', 'black' } },
@@ -194,7 +219,7 @@ return {
         basic.lsp_name,
         basic.git,
         { git_comps.git_branch(), { 'magenta', 'black' }, breakpoint_width },
-        { ' ',                    hl_list.Black },
+        { ' ', hl_list.Black },
         basic.square_mode,
       },
       inactive = {
@@ -202,8 +227,8 @@ return {
         basic.file_name_inactive,
         basic.divider,
         basic.divider,
-        { b_components.line_col,       hl_list.Inactive },
-        { b_components.progress,       hl_list.Inactive },
+        { b_components.line_col, hl_list.Inactive },
+        { b_components.progress, hl_list.Inactive },
       },
     }
 
@@ -219,5 +244,5 @@ return {
         explorer,
       },
     })
-  end
+  end,
 }

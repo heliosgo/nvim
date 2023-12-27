@@ -9,6 +9,10 @@ return {
   config = function()
     local lspconfig = require('lspconfig')
     local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local on_attach = function(client)
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+    end
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
     local signs = {
       Error = ' ',
@@ -32,6 +36,7 @@ return {
 
     lspconfig.pyright.setup({
       cmd = { 'pyright-langserver', '--stdio' },
+      on_attach = on_attach,
       settings = {
         python = {
           analysis = {
@@ -46,16 +51,17 @@ return {
     lspconfig.gopls.setup({
       cmd = { 'gopls', '--remote=auto' },
       capabilities = capabilities,
+      on_attach = on_attach,
       settings = {
         gopls = {
           usePlaceholders = true,
           buildFlags = { '-tags=integration' },
-          gofumpt = true,
         },
       },
     })
 
     lspconfig.lua_ls.setup({
+      on_attach = on_attach,
       settings = {
         Lua = {
           diagnostics = {
@@ -72,28 +78,9 @@ return {
       },
     })
 
-    lspconfig.tsserver.setup({
-      on_attach = function(client)
-        client.server_capabilities.document_formatting = false
-      end,
-    })
-
-    local ccapabilities = vim.lsp.protocol.make_client_capabilities()
-    ccapabilities.offsetEncoding = { 'utf-16' }
-
-    lspconfig.clangd.setup({
-      capabilities = ccapabilities,
-      cmd = {
-        'clangd',
-        '--background-index',
-        '--suggest-missing-includes',
-        '--clang-tidy',
-        '--header-insertion=iwyu',
-      },
-    })
-
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
+      on_attach = on_attach,
       settings = {
         ['rust-analyzer'] = {
           imports = {
@@ -119,15 +106,18 @@ return {
       },
     })
 
-    local servers = {
-      'dockerls',
-      'tsserver',
-      'bashls',
-      'zls',
-    }
-
-    for _, server in ipairs(servers) do
-      lspconfig[server].setup({})
-    end
-  end
+    local ccapabilities = vim.lsp.protocol.make_client_capabilities()
+    ccapabilities.offsetEncoding = { 'utf-16' }
+    lspconfig.clangd.setup({
+      on_attach = on_attach,
+      capabilities = ccapabilities,
+      cmd = {
+        'clangd',
+        '--background-index',
+        '--suggest-missing-includes',
+        '--clang-tidy',
+        '--header-insertion=iwyu',
+      },
+    })
+  end,
 }

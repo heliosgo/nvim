@@ -8,7 +8,7 @@ return {
   keys = {
     { '<leader>b', '<cmd>Telescope buffers<cr>' },
     { '<leader>fa', '<cmd>Telescope live_grep<cr>' },
-    { '<leader>ff', '<cmd>Telescope find_files<cr>' }
+    { '<leader>ff', '<cmd>Telescope find_files<cr>' },
   },
   config = function()
     require('telescope').setup({
@@ -29,6 +29,5 @@ return {
         },
       },
     })
-  end
+  end,
 }
-

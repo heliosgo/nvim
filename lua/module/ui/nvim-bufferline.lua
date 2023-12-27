@@ -1,7 +1,7 @@
 return {
   'akinsho/nvim-bufferline.lua',
   dependencies = {
-    { 'nvim-tree/nvim-web-devicons' }
+    { 'nvim-tree/nvim-web-devicons' },
   },
   config = function()
     require('bufferline').setup({
@@ -11,5 +11,5 @@ return {
         always_show_bufferline = true,
       },
     })
-  end
+  end,
 }

@@ -20,7 +20,8 @@ end
 function Lazy:load_plugins()
   local get_plugins_list = function()
     local list = {}
-    local plugins_list = vim.split(vim.fn.globpath(global.module_dir, '*/*.lua'), '\n')
+    local plugins_list =
+      vim.split(vim.fn.globpath(global.module_dir, '*/*.lua'), '\n')
     for _, f in ipairs(plugins_list) do
       list[#list + 1] = string.match(f, 'lua/(.+).lua')
     end

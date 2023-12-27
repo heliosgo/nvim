@@ -2,7 +2,7 @@ return {
   'kyazdani42/nvim-tree.lua',
   lazy = true,
   keys = {
-    { '<Leader>e', '<cmd>NvimTreeToggle<cr>' }
+    { '<Leader>e', '<cmd>NvimTreeToggle<cr>' },
   },
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
@@ -46,5 +46,5 @@ return {
         },
       },
     })
-  end
+  end,
 }

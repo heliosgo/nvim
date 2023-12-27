@@ -4,7 +4,7 @@ return {
   event = 'BufRead',
   build = function()
     if #vim.api.nvim_list_uis() ~= 0 then
-      vim.api.nvim_command("TSUpdate")
+      vim.api.nvim_command('TSUpdate')
     end
   end,
   config = function()
@@ -16,5 +16,5 @@ return {
         enable = true,
       },
     })
-  end
+  end,
 }

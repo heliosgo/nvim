@@ -1,5 +1,5 @@
 return {
-  "rebelot/kanagawa.nvim",
+  'rebelot/kanagawa.nvim',
   lazy = false,
   priority = 1000,
   config = function()
@@ -12,11 +12,11 @@ return {
           dragon = {},
           all = {
             ui = {
-              bg_gutter = 'none'
-            }
-          }
-        }
-      }
+              bg_gutter = 'none',
+            },
+          },
+        },
+      },
     })
 
     vim.cmd([[colorscheme kanagawa]])
