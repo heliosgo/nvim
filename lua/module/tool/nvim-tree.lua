@@ -7,21 +7,10 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     require('nvim-tree').setup({
-      disable_netrw = false,
       hijack_cursor = true,
-      hijack_netrw = true,
-      view = {
-        width = 30,
-        side = 'left',
-        preserve_window_proportions = false,
-        number = false,
-        relativenumber = false,
-        signcolumn = 'yes',
-      },
       renderer = {
         icons = {
           glyphs = {
-            default = '',
             symlink = '',
             folder = {
               arrow_closed = '',
