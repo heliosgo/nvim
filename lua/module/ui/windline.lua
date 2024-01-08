@@ -20,7 +20,7 @@ return {
     }
     local basic = {}
 
-    local breakpoint_width = 90
+    local breakpoint_width = 75
     basic.divider = { b_components.divider, '' }
     basic.bg = { ' ', 'StatusLine' }
 
@@ -84,8 +84,6 @@ return {
       text = function(_, _, width)
         if width > breakpoint_width then
           return {
-            { b_components.cache_file_size(), 'default' },
-            { ' ', '' },
             { b_components.cache_file_name('[No Name]', 'unique'), 'magenta' },
             { b_components.line_col_lua, 'white' },
             { b_components.progress_lua, '' },
@@ -94,8 +92,6 @@ return {
           }
         else
           return {
-            { b_components.cache_file_size(), 'default' },
-            { ' ', '' },
             { b_components.cache_file_name('[No Name]', 'unique'), 'magenta' },
             { ' ', '' },
             { b_components.file_modified(' '), 'magenta' },
@@ -192,6 +188,7 @@ return {
         if lsp_comps.check_lsp(bufnr) then
           return {
             { lsp_comps.lsp_name(), 'magenta' },
+            { '  ', '' },
           }
         end
         return {
