@@ -8,6 +8,9 @@ return {
   config = function()
     require('nvim-tree').setup({
       hijack_cursor = true,
+      filters = {
+        git_ignored = false,
+      },
       renderer = {
         icons = {
           glyphs = {
