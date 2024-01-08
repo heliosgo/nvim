@@ -20,7 +20,7 @@ return {
     }
     local basic = {}
 
-    local breakpoint_width = 75
+    local breakpoint_width = 70
     basic.divider = { b_components.divider, '' }
     basic.bg = { ' ', 'StatusLine' }
 
@@ -88,13 +88,11 @@ return {
             { b_components.line_col_lua, 'white' },
             { b_components.progress_lua, '' },
             { ' ', '' },
-            { b_components.file_modified(' '), 'magenta' },
           }
         else
           return {
             { b_components.cache_file_name('[No Name]', 'unique'), 'magenta' },
             { ' ', '' },
-            { b_components.file_modified(' '), 'magenta' },
           }
         end
       end,
@@ -188,7 +186,7 @@ return {
         if lsp_comps.check_lsp(bufnr) then
           return {
             { lsp_comps.lsp_name(), 'magenta' },
-            { '  ', '' },
+            { ' ', '' },
           }
         end
         return {
