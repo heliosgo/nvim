@@ -69,6 +69,7 @@ return {
               lsp_comps.lsp_hint({ format = '  %s', show_zero = true }),
               'blue',
             },
+            { ' ', '' },
           }
         end
         return ''
@@ -85,14 +86,14 @@ return {
         if width > breakpoint_width then
           return {
             { b_components.cache_file_name('[No Name]', 'unique'), 'magenta' },
-            { b_components.line_col_lua, 'white' },
+            { [[%3l:%-2c]], 'white' },
             { b_components.progress_lua, '' },
-            { ' ', '' },
+            { '  ', '' },
           }
         else
           return {
             { b_components.cache_file_name('[No Name]', 'unique'), 'magenta' },
-            { ' ', '' },
+            { '  ', '' },
           }
         end
       end,
@@ -186,7 +187,6 @@ return {
         if lsp_comps.check_lsp(bufnr) then
           return {
             { lsp_comps.lsp_name(), 'magenta' },
-            { ' ', '' },
           }
         end
         return {
@@ -201,10 +201,10 @@ return {
         basic.square_mode,
         basic.vi_mode,
         basic.file,
+        basic.lsp_name,
         basic.lsp_diagnos,
         basic.divider,
         basic.file_right,
-        basic.lsp_name,
         basic.git,
         { git_comps.git_branch(), { 'magenta', 'black' }, breakpoint_width },
         { ' ', hl_list.Black },
