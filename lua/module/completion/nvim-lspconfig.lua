@@ -46,6 +46,7 @@ return {
       },
     })
 
+    -- backend
     lspconfig.gopls.setup({
       cmd = { 'gopls', '--remote=auto' },
       capabilities = capabilities,
@@ -74,11 +75,6 @@ return {
           },
         },
       },
-    })
-
-    lspconfig.tsserver.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     lspconfig.rust_analyzer.setup({
@@ -121,6 +117,23 @@ return {
         '--clang-tidy',
         '--header-insertion=iwyu',
       },
+    })
+
+    -- frontend
+    lspconfig.tsserver.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig.eslint.setup({
+      filetypes = { 'javascriptreact', 'typescriptreact' },
+      on_attach = function(client, bufnr)
+        on_attach(client)
+        vim.api.nvim_create_autocmd('BufWritePre', {
+          buffer = bufnr,
+          command = 'EslintFixAll',
+        })
+      end,
     })
   end,
 }
