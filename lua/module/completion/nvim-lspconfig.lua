@@ -2,7 +2,19 @@ return {
   'neovim/nvim-lspconfig',
   lazy = true,
   event = 'BufEnter',
-  ft = { 'go', 'lua', 'rust', 'c', 'cpp', 'sh' },
+  ft = {
+    'go',
+    'lua',
+    'rust',
+    'c',
+    'cpp',
+    'sh',
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+    'json',
+  },
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
   },
@@ -34,20 +46,6 @@ return {
       },
     })
 
-    lspconfig.pyright.setup({
-      cmd = { 'pyright-langserver', '--stdio' },
-      on_attach = on_attach,
-      settings = {
-        python = {
-          analysis = {
-            autoSearchPaths = true,
-            diagnosticMode = 'workspace',
-            useLibraryCodeForTypes = true,
-          },
-        },
-      },
-    })
-
     lspconfig.gopls.setup({
       cmd = { 'gopls', '--remote=auto' },
       capabilities = capabilities,
@@ -76,6 +74,11 @@ return {
           },
         },
       },
+    })
+
+    lspconfig.tsserver.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
 
     lspconfig.rust_analyzer.setup({
