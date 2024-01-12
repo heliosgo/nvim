@@ -4,6 +4,7 @@ return {
   priority = 1000,
   config = function()
     require('kanagawa').setup({
+      terminalColors = false,
       colors = {
         palette = {},
         theme = {

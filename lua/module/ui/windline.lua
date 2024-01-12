@@ -222,8 +222,28 @@ return {
 
     windline.setup({
       colors_name = function(colors)
-        -- print(vim.inspect(colors))
-        -- ADD MORE COLOR HERE ----
+        colors.black = '#16161D'
+        colors.red = '#C34043'
+        colors.green = '#76946A'
+        colors.yellow = '#C0A36E'
+        colors.blue = '#7E9CD8'
+        colors.magenta = '#957FB8'
+        colors.cyan = '#6A9589'
+        colors.white = '#C8C093'
+        colors.black_light = '#DCD7BA'
+        colors.red_light = '#E82424'
+        colors.green_light = '#98BB6C'
+        colors.yellow_light = '#E6C384'
+        colors.blue_light = '#7FB4CA'
+        colors.magenta_light = '#938AA9'
+        colors.cyan_light = '#7AA89F'
+        colors.white_light = '#DCD7BA'
+        colors.NormalFg = '#DCD7BA'
+        colors.NormalBg = '#1F1F28'
+        colors.ActiveFg = '#C8C093'
+        colors.ActiveBg = '#16161D'
+        colors.InactiveFg = '#54546D'
+        colors.InactiveBg = '#16161D'
         return colors
       end,
       statuslines = {
