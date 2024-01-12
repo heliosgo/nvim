@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 vim.api.nvim_create_autocmd('BufEnter', {
   pattern = '*',
   callback = function()
-    if vim.bo.filetype == 'NvimTree' then
+    if vim.bo.filetype == 'NvimTree' or vim.fn.win_gettype(0) == 'popup' then
       vim.o.winwidth = 30
     else
       vim.o.winwidth = 85
