@@ -4,7 +4,7 @@ return {
   config = function()
     require('toggleterm').setup({
       size = 20,
-      open_mapping = '<A-d>',
+      open_mapping = '<D-d>',
       direction = 'float',
       shade_terminal = true,
       hide_numbers = true,
