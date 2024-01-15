@@ -10,7 +10,7 @@ function Lazy:load_lazy()
       'clone',
       '--filter=blob:none',
       'https://github.com/folke/lazy.nvim.git',
-      '--branch=stable', -- latest stable release
+      '--branch=stable',
       lazy_path,
     })
   end
