@@ -12,6 +12,15 @@ return {
       filters = {
         git_ignored = false,
       },
+      diagnostics = {
+        enable = true,
+        icons = {
+          hint = '',
+          info = '',
+          warning = '',
+          error = '',
+        },
+      },
       renderer = {
         icons = {
           glyphs = {

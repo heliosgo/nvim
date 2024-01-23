@@ -4,6 +4,7 @@ return {
   dependencies = {
     { 'nvim-lua/plenary.nvim', lazy = true },
     { 'nvim-lua/popup.nvim', lazy = true },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', lazy = true },
   },
   keys = {
     { '<leader>b', '<cmd>Telescope buffers<cr>' },
@@ -23,11 +24,14 @@ return {
         qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
       },
       extensions = {
-        fzy_native = {
-          override_generic_sorter = false,
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
           override_file_sorter = true,
+          case_mode = 'smart_case',
         },
       },
+      require('telescope').load_extension('fzf'),
     })
   end,
 }
