@@ -14,6 +14,7 @@ return {
     'typescript',
     'typescriptreact',
     'json',
+    'jsonc',
   },
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -135,5 +136,7 @@ return {
         })
       end,
     })
+
+    lspconfig.jsonls.setup({})
   end,
 }
