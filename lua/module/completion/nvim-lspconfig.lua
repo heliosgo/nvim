@@ -15,6 +15,7 @@ return {
     'typescriptreact',
     'json',
     'jsonc',
+    'css',
   },
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -137,6 +138,15 @@ return {
       end,
     })
 
-    lspconfig.jsonls.setup({})
+    ccapabilities.textDocument.completion.completionItem.snippetSupport = true
+    lspconfig.jsonls.setup({
+      capabilities = ccapabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig.cssls.setup({
+      capabilities = ccapabilities,
+      on_attach = on_attach,
+    })
   end,
 }
