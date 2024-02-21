@@ -141,12 +141,10 @@ return {
     ccapabilities.textDocument.completion.completionItem.snippetSupport = true
     lspconfig.jsonls.setup({
       capabilities = ccapabilities,
-      on_attach = on_attach,
     })
 
     lspconfig.cssls.setup({
       capabilities = ccapabilities,
-      on_attach = on_attach,
     })
   end,
 }

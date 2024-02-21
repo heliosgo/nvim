@@ -13,9 +13,6 @@ return {
     'javascriptreact',
     'typescript',
     'typescriptreact',
-    'json',
-    'jsonc',
-    'css',
   },
   config = function()
     require('conform').setup({
@@ -26,9 +23,6 @@ return {
         typescript = { { 'prettierd', 'prettier' } },
         javascriptreact = { { 'prettierd', 'prettier' } },
         typescriptreact = { { 'prettierd', 'prettier' } },
-        json = { { 'prettierd', 'prettier' } },
-        jsonc = { { 'prettierd', 'prettier' } },
-        css = { { 'prettierd', 'prettier' } },
       },
       format_after_save = {
         lsp_fallback = true,
