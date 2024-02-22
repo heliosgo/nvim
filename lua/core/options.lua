@@ -71,7 +71,7 @@ local load_options = function()
   vim.opt.showcmd = false
   vim.opt.relativenumber = true
   vim.opt.cursorline = true
-  vim.opt.colorcolumn = '80'
+  --vim.opt.colorcolumn = '80'
 
   -- just for nightly
   vim.opt.cmdheight = 1
