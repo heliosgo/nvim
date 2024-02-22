@@ -18,6 +18,12 @@ return {
           },
         },
       },
+      overrides = function()
+        return {
+          FloatBorder = { bg = 'none' },
+          NormalFloat = { bg = 'none' },
+        }
+      end,
     })
 
     vim.cmd([[colorscheme kanagawa]])

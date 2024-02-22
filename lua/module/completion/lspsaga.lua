@@ -2,7 +2,11 @@ return {
   'nvimdev/lspsaga.nvim',
   lazy = true,
   event = 'LspAttach',
-  dependencies = { 'nvim-lspconfig' },
+  dependencies = {
+    'nvim-lspconfig',
+    'nvim-treesitter/nvim-treesitter',
+    'nvim-tree/nvim-web-devicons',
+  },
   keys = {
     { 'K', '<cmd>Lspsaga hover_doc<cr>' },
     { 'gh', '<cmd>Lspsaga finder<cr>' },
