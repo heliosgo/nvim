@@ -19,6 +19,7 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         go = { 'golines' },
+        rust = { 'rustfmt' },
         javascript = { { 'prettierd', 'prettier' } },
         typescript = { { 'prettierd', 'prettier' } },
         javascriptreact = { { 'prettierd', 'prettier' } },
