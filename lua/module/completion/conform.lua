@@ -13,6 +13,7 @@ return {
     'javascriptreact',
     'typescript',
     'typescriptreact',
+    'toml',
   },
   config = function()
     require('conform').setup({
@@ -24,6 +25,7 @@ return {
         typescript = { { 'prettierd', 'prettier' } },
         javascriptreact = { { 'prettierd', 'prettier' } },
         typescriptreact = { { 'prettierd', 'prettier' } },
+        toml = { 'taplo' },
       },
       format_after_save = {
         lsp_fallback = true,
