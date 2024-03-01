@@ -14,6 +14,7 @@ return {
     'typescript',
     'typescriptreact',
     'toml',
+    'yaml',
   },
   config = function()
     require('conform').setup({
@@ -26,6 +27,7 @@ return {
         javascriptreact = { { 'prettierd', 'prettier' } },
         typescriptreact = { { 'prettierd', 'prettier' } },
         toml = { 'taplo' },
+        yaml = { 'yamlfmt' },
       },
       format_after_save = {
         lsp_fallback = true,

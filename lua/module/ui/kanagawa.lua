@@ -22,6 +22,7 @@ return {
         return {
           FloatBorder = { bg = 'none' },
           NormalFloat = { bg = 'none' },
+          FloatTitle = { bg = 'none' },
         }
       end,
     })

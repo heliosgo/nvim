@@ -82,8 +82,13 @@ return {
     lspconfig.rust_analyzer.setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      root_dir = function()
+        return vim.fn.getcwd()
+      end,
+      cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
       settings = {
         ['rust-analyzer'] = {
+          reportMissingImports = true,
           imports = {
             granularity = {
               group = 'module',
@@ -91,6 +96,7 @@ return {
             prefix = 'self',
           },
           cargo = {
+            allFeatures = true,
             buildScripts = {
               enable = true,
             },
