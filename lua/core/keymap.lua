@@ -29,3 +29,6 @@ vim.keymap.set('i', '<C-n>', '<Down>', { silent = true })
 
 vim.keymap.set('v', 'j', 'gj', { silent = true })
 vim.keymap.set('v', 'k', 'gk', { silent = true })
+
+vim.keymap.set('n', '<Up>', '<nop>')
+vim.keymap.set('n', '<Down>', '<nop>')
