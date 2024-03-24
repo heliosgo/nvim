@@ -15,7 +15,7 @@ return {
       config = {
         shortcut = {
           {
-            desc = 'Wish good luck to you and me',
+            desc = 'Talk is cheap. Show me the code.',
           },
         },
       },
