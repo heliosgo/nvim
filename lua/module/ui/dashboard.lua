@@ -1,5 +1,5 @@
 return {
-  'nvimdev/dashboard-nvim',
+  'heliosgo/dashboard-nvim',
   event = 'VimEnter',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
