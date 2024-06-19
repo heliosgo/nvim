@@ -20,6 +20,11 @@ return {
         'go',
         'markdown',
         'markdown_inline',
+        'javascript',
+        'typescript',
+        'css',
+        'json',
+        'toml',
       },
       highlight = {
         enable = true,
