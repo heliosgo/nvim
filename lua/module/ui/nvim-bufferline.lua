@@ -35,6 +35,7 @@ return {
         modified_visible = { bg = 'none' },
         modified_selected = { bg = 'none' },
         offset_separator = { bg = 'none', fg = 'none' },
+        trunc_marker = { fg = 'none', bg = 'none' },
       },
     })
   end,
