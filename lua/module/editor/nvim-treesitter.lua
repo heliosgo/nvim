@@ -25,6 +25,7 @@ return {
         'html',
         'json',
         'toml',
+        'tsx',
       },
       highlight = {
         enable = true,
