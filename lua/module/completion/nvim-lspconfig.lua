@@ -16,6 +16,7 @@ return {
     'json',
     'jsonc',
     'css',
+    'html',
   },
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -134,7 +135,13 @@ return {
     })
 
     lspconfig.eslint.setup({
-      filetypes = { 'javascriptreact', 'typescriptreact' },
+      filetypes = {
+        'javascriptreact',
+        'typescriptreact',
+        'typescript',
+        'javascript',
+        'html',
+      },
       on_attach = function(client, bufnr)
         on_attach(client)
         vim.api.nvim_create_autocmd('BufWritePre', {
@@ -150,6 +157,10 @@ return {
     })
 
     lspconfig.cssls.setup({
+      capabilities = ccapabilities,
+    })
+
+    lspconfig.html.setup({
       capabilities = ccapabilities,
     })
   end,
