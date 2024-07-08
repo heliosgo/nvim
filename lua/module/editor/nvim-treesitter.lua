@@ -26,6 +26,8 @@ return {
         'json',
         'toml',
         'tsx',
+        'yaml',
+        'sql',
       },
       highlight = {
         enable = true,
