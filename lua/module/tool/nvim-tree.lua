@@ -8,6 +8,9 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     require('nvim-tree').setup({
+      view = {
+        width = 29,
+      },
       hijack_cursor = true,
       filters = {
         git_ignored = false,
