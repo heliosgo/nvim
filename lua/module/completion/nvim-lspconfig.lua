@@ -140,7 +140,6 @@ return {
         'typescriptreact',
         'typescript',
         'javascript',
-        'html',
       },
       on_attach = function(client, bufnr)
         on_attach(client)
