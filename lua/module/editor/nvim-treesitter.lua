@@ -12,13 +12,15 @@ return {
     vim.api.nvim_command('set foldexpr=nvim_treesitter#foldexpr()')
     require('nvim-treesitter.configs').setup({
       ensure_installed = {
+        'c',
         'lua',
         'vim',
         'vimdoc',
-        'rust',
-        'go',
+        'query',
         'markdown',
         'markdown_inline',
+        'rust',
+        'go',
         'javascript',
         'typescript',
         'css',
