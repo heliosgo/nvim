@@ -33,7 +33,6 @@ return {
       Error = ' ',
       Warn = ' ',
       Info = ' ',
-      Hint = 'ﴞ ',
     }
     for type, icon in pairs(signs) do
       local hl = 'DiagnosticSign' .. type

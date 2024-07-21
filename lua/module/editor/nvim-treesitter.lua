@@ -30,6 +30,9 @@ return {
         'tsx',
         'yaml',
         'sql',
+        'http',
+        'xml',
+        'graphql',
       },
       highlight = {
         enable = true,
