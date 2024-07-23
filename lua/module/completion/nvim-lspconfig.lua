@@ -131,15 +131,15 @@ return {
     lspconfig.tsserver.setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      cmd = { 'typescript-language-server', '--stdio' },
+      settings = {
+        diagnostics = { ignoredCodes = { 6133 } },
+        completions = { completeFunctionCalls = true },
+      },
     })
 
     lspconfig.eslint.setup({
-      filetypes = {
-        'javascriptreact',
-        'typescriptreact',
-        'typescript',
-        'javascript',
-      },
+      capabilities = capabilities,
       on_attach = function(client, bufnr)
         on_attach(client)
         vim.api.nvim_create_autocmd('BufWritePre', {
