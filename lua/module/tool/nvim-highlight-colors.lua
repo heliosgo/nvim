@@ -1,5 +1,5 @@
 return {
-  'brenoprata10/nvim-highlight-colors',
+  'heliosgo/nvim-highlight-colors',
   enabled = true,
   config = function()
     require('nvim-highlight-colors').setup({
@@ -25,6 +25,9 @@ return {
 
       ---Highlight hex colors, e.g. '#FFFFFF'
       enable_hex = true,
+
+      ---Highlight hex colors, e.g. '0xFFFFFF'
+      enable_hex_0x = false,
 
       ---Highlight short hex colors e.g. '#fff'
       enable_short_hex = true,
