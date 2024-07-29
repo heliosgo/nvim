@@ -29,6 +29,7 @@ return {
         html = { 'prettierd', 'prettier', stop_after_first = true },
         toml = { 'taplo' },
         yaml = { 'yamlfmt' },
+        proto = { 'buf' },
       },
       format_after_save = {
         lsp_fallback = true,

@@ -116,6 +116,7 @@ return {
     local ccapabilities = vim.lsp.protocol.make_client_capabilities()
     ccapabilities.offsetEncoding = { 'utf-16' }
     lspconfig.clangd.setup({
+      filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
       on_attach = on_attach,
       capabilities = ccapabilities,
       cmd = {
