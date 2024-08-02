@@ -33,6 +33,7 @@ return {
         'http',
         'xml',
         'graphql',
+        'comment',
       },
       highlight = {
         enable = true,
