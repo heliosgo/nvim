@@ -29,6 +29,7 @@ return {
       client.server_capabilities.documentRangeFormattingProvider = false
     end
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    capabilities.textDocument.completion.completionItem.snippetSupport = false
     local signs = {
       Error = ' ',
       Warn = ' ',
@@ -150,7 +151,6 @@ return {
       end,
     })
 
-    ccapabilities.textDocument.completion.completionItem.snippetSupport = true
     lspconfig.jsonls.setup({
       capabilities = ccapabilities,
     })
