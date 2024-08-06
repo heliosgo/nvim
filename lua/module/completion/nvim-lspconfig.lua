@@ -29,7 +29,7 @@ return {
       client.server_capabilities.documentRangeFormattingProvider = false
     end
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-    capabilities.textDocument.completion.completionItem.snippetSupport = false
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
     local signs = {
       Error = ' ',
       Warn = ' ',
