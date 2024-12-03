@@ -34,6 +34,7 @@ return {
         'xml',
         'graphql',
         'comment',
+        'python',
       },
       highlight = {
         enable = true,

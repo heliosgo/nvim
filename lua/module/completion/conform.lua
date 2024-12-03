@@ -15,6 +15,7 @@ return {
     'typescriptreact',
     'toml',
     'yaml',
+    'python',
   },
   config = function()
     require('conform').setup({
@@ -30,6 +31,7 @@ return {
         toml = { 'taplo' },
         yaml = { 'yamlfmt' },
         proto = { 'buf' },
+        python = { 'black' },
       },
       format_after_save = {
         lsp_fallback = true,

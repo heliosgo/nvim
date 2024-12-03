@@ -17,6 +17,8 @@ return {
     'jsonc',
     'css',
     'html',
+    'swift',
+    'python',
   },
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -114,6 +116,8 @@ return {
       },
     })
 
+    lspconfig.pyright.setup({})
+
     local ccapabilities = vim.lsp.protocol.make_client_capabilities()
     ccapabilities.offsetEncoding = { 'utf-16' }
     lspconfig.clangd.setup({
@@ -161,6 +165,16 @@ return {
 
     lspconfig.html.setup({
       capabilities = ccapabilities,
+    })
+
+    lspconfig.sourcekit.setup({
+      capabilities = {
+        workspace = {
+          didChangeWatchedFiles = {
+            dynamicRegistration = false,
+          },
+        },
+      },
     })
   end,
 }
