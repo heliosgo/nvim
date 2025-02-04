@@ -139,7 +139,7 @@ return {
       on_attach = on_attach,
       cmd = { 'typescript-language-server', '--stdio' },
       settings = {
-        diagnostics = { ignoredCodes = { 6133 } },
+        diagnostics = { ignoredCodes = { 6133, 80001 } },
         completions = { completeFunctionCalls = true },
       },
     })
@@ -171,7 +171,7 @@ return {
       capabilities = {
         workspace = {
           didChangeWatchedFiles = {
-            dynamicRegistration = false,
+            dynamicRegistration = true,
           },
         },
       },

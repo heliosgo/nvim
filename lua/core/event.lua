@@ -6,9 +6,30 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.api.nvim_create_autocmd('Filetype', {
-  pattern = '*.c,*.cpp,*.lua,*.go,*.rs,*.py,*.ts,*.tsx,*.json,*.cc,*.h,*.jsx,*.js,*.css',
+  pattern = '*.c,*.cpp,*.lua,*.go,*.rs,*.py,*.ts,*.tsx,*.json,*.cc,*.h,*.jsx,*.js,*.css,*.wxml,*.wxss',
   callback = function()
     vim.cmd('syntax off')
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufReadPre', {
+  pattern = '*.wxml',
+  callback = function()
+    vim.cmd('set filetype=xml')
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufReadPre', {
+  pattern = '*.wxss',
+  callback = function()
+    vim.cmd('set filetype=css')
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufReadPre', {
+  pattern = '*.eslintrc',
+  callback = function()
+    vim.cmd('set filetype=eslintrc')
   end,
 })
 

@@ -1,0 +1,18 @@
+{
+  "template": {
+    "prefix": "template",
+    "body": [
+      "import React, { memo, ReactNode, FC } from 'react';",
+      "",
+      "interface IProps {",
+      "\tchildren?: ReactNode;",
+      "}",
+      "",
+      "const ${1:Template}: FC<IProps> = () => {",
+      "\treturn <div>${1:Template}</div>;",
+      "};",
+      "",
+      "export default memo(${1:Template});"
+    ]
+  }
+}

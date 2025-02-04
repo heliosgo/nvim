@@ -16,6 +16,7 @@ return {
     'toml',
     'yaml',
     'python',
+    --    'sql',
   },
   config = function()
     require('conform').setup({
@@ -32,6 +33,7 @@ return {
         yaml = { 'yamlfmt' },
         proto = { 'buf' },
         python = { 'black' },
+        --        sql = { 'sqlfluff' },
       },
       format_after_save = {
         lsp_fallback = true,

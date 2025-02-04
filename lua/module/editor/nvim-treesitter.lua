@@ -35,6 +35,7 @@ return {
         'graphql',
         'comment',
         'python',
+        'swift',
       },
       highlight = {
         enable = true,
