@@ -6,6 +6,8 @@ return {
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/cmp-cmdline' },
     { 'saadparwaiz1/cmp_luasnip' },
+    { 'hrsh7th/cmp-cmdline' },
+    { 'zbirenbaum/copilot-cmp' },
   },
   config = function()
     local has_words_before = function()
@@ -48,6 +50,7 @@ return {
         end,
       },
       sources = {
+        { name = 'copilot' },
         { name = 'nvim_lsp' },
         { name = 'path' },
         { name = 'buffer' },
