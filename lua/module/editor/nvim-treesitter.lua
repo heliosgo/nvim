@@ -36,6 +36,7 @@ return {
         'comment',
         'python',
         'swift',
+        'java',
       },
       highlight = {
         enable = true,

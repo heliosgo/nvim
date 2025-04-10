@@ -16,6 +16,7 @@ return {
     'toml',
     'yaml',
     'python',
+    'java',
     --    'sql',
   },
   config = function()
@@ -33,6 +34,7 @@ return {
         yaml = { 'yamlfmt' },
         proto = { 'buf' },
         python = { 'black' },
+        java = { 'google-java-format' },
         --        sql = { 'sqlfluff' },
       },
       format_after_save = {

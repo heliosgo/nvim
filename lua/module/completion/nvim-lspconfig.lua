@@ -19,6 +19,7 @@ return {
     'html',
     'swift',
     'python',
+    'java',
   },
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -32,17 +33,16 @@ return {
     end
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
     capabilities.textDocument.completion.completionItem.snippetSupport = true
-    local signs = {
-      Error = ' ',
-      Warn = ' ',
-      Info = ' ',
-    }
-    for type, icon in pairs(signs) do
-      local hl = 'DiagnosticSign' .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
     vim.diagnostic.config({
-      signs = true,
+      -- signs = true,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = ' ',
+          [vim.diagnostic.severity.WARN] = ' ',
+          [vim.diagnostic.severity.INFO] = ' ',
+          [vim.diagnostic.severity.HINT] = '󰌵 ',
+        },
+      },
       update_in_insert = false,
       underline = true,
       severity_sort = true,
@@ -117,6 +117,10 @@ return {
     })
 
     lspconfig.pyright.setup({})
+
+    lspconfig.jdtls.setup({
+      cmd = { 'jdtls' },
+    })
 
     local ccapabilities = vim.lsp.protocol.make_client_capabilities()
     ccapabilities.offsetEncoding = { 'utf-16' }
