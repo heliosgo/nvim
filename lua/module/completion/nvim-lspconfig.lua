@@ -20,6 +20,7 @@ return {
     'swift',
     'python',
     'java',
+    'xml',
   },
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -182,6 +183,10 @@ return {
     })
 
     lspconfig.html.setup({
+      capabilities = ccapabilities,
+    })
+
+    lspconfig.lemminx.setup({
       capabilities = ccapabilities,
     })
 
