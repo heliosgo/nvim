@@ -23,6 +23,7 @@ return {
   },
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
+    { 'mfussenegger/nvim-jdtls' },
   },
   config = function()
     local lspconfig = require('lspconfig')
@@ -118,8 +119,21 @@ return {
 
     lspconfig.pyright.setup({})
 
-    lspconfig.jdtls.setup({
-      cmd = { 'jdtls' },
+    -- java
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'java',
+      callback = function()
+        local config = {
+          cmd = { 'jdtls' },
+          root_dir = vim.fs.dirname(
+            vim.fs.find(
+              { 'gradlew', '.git', 'mvnw', 'pom.xml' },
+              { upward = true }
+            )[1]
+          ),
+        }
+        require('jdtls').start_or_attach(config)
+      end,
     })
 
     local ccapabilities = vim.lsp.protocol.make_client_capabilities()
