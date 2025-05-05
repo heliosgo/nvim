@@ -1,6 +1,7 @@
 vim.g.mapleader = ' '
 
 vim.keymap.set('n', ' ', '', { silent = true })
+vim.keymap.set('i', '<C-;>', '', { silent = true })
 -- clear search highlight
 vim.keymap.set('n', '<esc>', '<cmd>let @/ = ""<cr>', { silent = true })
 -- window jump
