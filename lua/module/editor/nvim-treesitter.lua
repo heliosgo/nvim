@@ -37,6 +37,7 @@ return {
         'python',
         'swift',
         'java',
+        'yang',
       },
       highlight = {
         enable = true,

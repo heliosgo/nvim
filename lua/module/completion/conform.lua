@@ -20,7 +20,7 @@ return {
     --    'sql',
   },
   config = function()
-    require('conform').setup({
+    local opts = {
       formatters_by_ft = {
         lua = { 'stylua' },
         go = { 'golines' },
@@ -48,6 +48,11 @@ return {
           args = { '--base-formatter=gofumpt' },
         },
       },
-    })
+    }
+    opts.formatters['google-java-format'] = {
+      command = 'google-java-format',
+      args = { '-', '--aosp' },
+    }
+    require('conform').setup(opts)
   end,
 }
