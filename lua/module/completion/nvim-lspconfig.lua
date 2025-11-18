@@ -27,7 +27,6 @@ return {
     { 'mfussenegger/nvim-jdtls' },
   },
   config = function()
-    local lspconfig = require('lspconfig')
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     local on_attach = function(client)
       client.server_capabilities.documentFormattingProvider = false
@@ -54,8 +53,9 @@ return {
     })
 
     -- backend
-    lspconfig.gopls.setup({
+    vim.lsp.config('gopls', {
       cmd = { 'gopls', '--remote=auto' },
+      filetypes = { 'go' },
       capabilities = capabilities,
       on_attach = on_attach,
       settings = {
@@ -65,9 +65,11 @@ return {
         },
       },
     })
+    vim.lsp.enable('gopls')
 
-    lspconfig.lua_ls.setup({
+    vim.lsp.config('lua_ls', {
       on_attach = on_attach,
+      filetypes = { 'lua' },
       settings = {
         Lua = {
           diagnostics = {
@@ -83,14 +85,15 @@ return {
         },
       },
     })
+    vim.lsp.enable('lua_ls')
 
-    lspconfig.rust_analyzer.setup({
+    vim.lsp.config('rust_analyzer', {
       capabilities = capabilities,
       on_attach = on_attach,
-      root_dir = function()
-        return vim.fn.getcwd()
-      end,
-      cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
+      root_markers = { 'Cargo.toml', '.git' },
+      filetypes = { 'rust' },
+      single_file_support = true,
+      cmd = { 'rust-analyzer' },
       settings = {
         ['rust-analyzer'] = {
           reportMissingImports = true,
@@ -116,9 +119,18 @@ return {
           },
         },
       },
+      before_init = function(init_params, config)
+        if config.settings and config.settings['rust-analyzer'] then
+          init_params.initializationOptions = config.settings['rust-analyzer']
+        end
+      end,
     })
+    vim.lsp.enable('rust_analyzer')
 
-    lspconfig.pyright.setup({})
+    vim.lsp.config('pyright', {
+      filetypes = { 'python' },
+    })
+    vim.lsp.enable('pyright')
 
     -- java
     vim.api.nvim_create_autocmd('FileType', {
@@ -139,7 +151,7 @@ return {
 
     local ccapabilities = vim.lsp.protocol.make_client_capabilities()
     ccapabilities.offsetEncoding = { 'utf-16' }
-    lspconfig.clangd.setup({
+    vim.lsp.config('clangd', {
       filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
       on_attach = on_attach,
       capabilities = ccapabilities,
@@ -151,9 +163,10 @@ return {
         '--header-insertion=iwyu',
       },
     })
+    vim.lsp.enable('clangd')
 
     -- frontend
-    lspconfig.ts_ls.setup({
+    vim.lsp.config('ts_ls', {
       capabilities = capabilities,
       on_attach = on_attach,
       cmd = { 'typescript-language-server', '--stdio' },
@@ -162,8 +175,9 @@ return {
         completions = { completeFunctionCalls = true },
       },
     })
+    vim.lsp.enable('ts_ls')
 
-    lspconfig.eslint.setup({
+    vim.lsp.config('eslint', {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         on_attach(client)
@@ -173,24 +187,29 @@ return {
         })
       end,
     })
+    vim.lsp.enable('eslint')
 
-    lspconfig.jsonls.setup({
+    vim.lsp.config('jsonls', {
       capabilities = ccapabilities,
     })
+    vim.lsp.enable('jsonls')
 
-    lspconfig.cssls.setup({
+    vim.lsp.config('cssls', {
       capabilities = ccapabilities,
     })
+    vim.lsp.enable('cssls')
 
-    lspconfig.html.setup({
+    vim.lsp.config('html', {
       capabilities = ccapabilities,
     })
+    vim.lsp.enable('html')
 
-    lspconfig.lemminx.setup({
+    vim.lsp.config('lemminx', {
       capabilities = ccapabilities,
     })
+    vim.lsp.enable('lemminx')
 
-    lspconfig.sourcekit.setup({
+    vim.lsp.config('sourcekit', {
       capabilities = {
         workspace = {
           didChangeWatchedFiles = {
@@ -199,5 +218,6 @@ return {
         },
       },
     })
+    vim.lsp.enable('sourcekit')
   end,
 }
