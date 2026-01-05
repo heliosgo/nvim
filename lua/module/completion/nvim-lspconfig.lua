@@ -21,6 +21,7 @@ return {
     'python',
     'java',
     'xml',
+    'markdown',
   },
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -277,5 +278,7 @@ return {
       },
     })
     vim.lsp.enable('sourcekit')
+
+    vim.lsp.enable('markdown_oxide')
   end,
 }
