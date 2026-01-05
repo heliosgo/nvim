@@ -28,8 +28,8 @@ return {
     cmp.setup({
       preselect = cmp.PreselectMode.Item,
       window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered({ border = 'rounded' }),
+        documentation = cmp.config.window.bordered({ border = 'rounded' }),
       },
       mapping = cmp.mapping.preset.insert({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
