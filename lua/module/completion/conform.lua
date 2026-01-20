@@ -17,6 +17,7 @@ return {
     'yaml',
     'python',
     'java',
+    'astro',
     --    'sql',
   },
   config = function()
@@ -29,6 +30,7 @@ return {
         typescript = { 'prettierd', 'prettier', stop_after_first = true },
         javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
         typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+        astro = { 'prettier' },
         html = { 'prettierd', 'prettier', stop_after_first = true },
         toml = { 'taplo' },
         yaml = { 'yamlfmt' },

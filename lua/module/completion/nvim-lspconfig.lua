@@ -22,6 +22,7 @@ return {
     'java',
     'xml',
     'markdown',
+    'astro',
   },
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -247,6 +248,11 @@ return {
       end,
     })
     vim.lsp.enable('eslint')
+
+    vim.lsp.config('astro', {
+      capabilities = ccapabilities,
+    })
+    vim.lsp.enable('astro')
 
     vim.lsp.config('jsonls', {
       capabilities = ccapabilities,

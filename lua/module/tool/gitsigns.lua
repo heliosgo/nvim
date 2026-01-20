@@ -6,6 +6,6 @@ return {
     { 'J', '<cmd>Gitsigns blame_line<cr>' },
   },
   config = function()
-    require('gitsigns').setup()
+    require('gitsigns').setup({})
   end,
 }
