@@ -30,6 +30,7 @@ return {
         typescript = { 'prettierd', 'prettier', stop_after_first = true },
         javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
         typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+        css = { 'prettierd', 'prettier', stop_after_first = true },
         astro = { 'prettier' },
         html = { 'prettierd', 'prettier', stop_after_first = true },
         toml = { 'taplo' },
@@ -56,6 +57,11 @@ return {
         golines = {
           command = 'golines',
           args = { '--base-formatter=gofumpt' },
+        },
+        prettierd = {
+          env = {
+            PRETTIERD_LOCAL_PRETTIER_ONLY = 'true',
+          },
         },
       },
     }

@@ -249,29 +249,14 @@ return {
     })
     vim.lsp.enable('eslint')
 
-    vim.lsp.config('astro', {
-      capabilities = ccapabilities,
-    })
     vim.lsp.enable('astro')
 
-    vim.lsp.config('jsonls', {
-      capabilities = ccapabilities,
-    })
     vim.lsp.enable('jsonls')
 
-    vim.lsp.config('cssls', {
-      capabilities = ccapabilities,
-    })
     vim.lsp.enable('cssls')
 
-    vim.lsp.config('html', {
-      capabilities = ccapabilities,
-    })
     vim.lsp.enable('html')
 
-    vim.lsp.config('lemminx', {
-      capabilities = ccapabilities,
-    })
     vim.lsp.enable('lemminx')
 
     vim.lsp.config('sourcekit', {
@@ -285,6 +270,6 @@ return {
     })
     vim.lsp.enable('sourcekit')
 
-    vim.lsp.enable('markdown_oxide')
+    --vim.lsp.enable('markdown_oxide')
   end,
 }

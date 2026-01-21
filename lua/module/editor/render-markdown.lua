@@ -14,6 +14,7 @@ return {
       code = {
         style = 'language',
         language_border = '',
+        language_icon = false,
       },
       heading = { backgrounds = {} },
     })
