@@ -174,12 +174,27 @@ return {
       languages = { 'vue' },
       configNamespace = 'typescript',
     }
+    local function get_astro_plugin_path()
+      local root = vim.fs.root(
+        0,
+        { '.git', 'package.json', 'astro.config.mjs' }
+      ) or vim.fn.getcwd() -- fallback 到 cwd
+
+      return root .. '/node_modules/@astrojs/ts-plugin'
+    end
+    local astro_plugin = {
+      name = '@astrojs/ts-plugin',
+      location = get_astro_plugin_path(),
+      languages = { 'astro' },
+      configNamespace = 'typescript',
+    }
     local tsserver_filetypes = {
       'typescript',
       'javascript',
       'javascriptreact',
       'typescriptreact',
       'vue',
+      'astro',
     }
     vim.lsp.config('vtsls', {
       settings = {
@@ -187,6 +202,7 @@ return {
           tsserver = {
             globalPlugins = {
               vue_plugin,
+              astro_plugin,
             },
           },
         },
@@ -248,11 +264,6 @@ return {
       end,
     })
     vim.lsp.enable('eslint')
-
-    vim.lsp.config('astro', {
-      filetypes = { 'astro', 'typescript', 'javascript' },
-    })
-    vim.lsp.enable('astro')
 
     vim.lsp.enable('jsonls')
 
