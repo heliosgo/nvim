@@ -249,6 +249,9 @@ return {
     })
     vim.lsp.enable('eslint')
 
+    vim.lsp.config('astro', {
+      filetypes = { 'astro', 'typescript', 'javascript' },
+    })
     vim.lsp.enable('astro')
 
     vim.lsp.enable('jsonls')
