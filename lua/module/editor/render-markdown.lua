@@ -17,6 +17,16 @@ return {
         language_icon = false,
       },
       heading = { backgrounds = {} },
+      overrides = {
+        buftype = {
+          nofile = {
+            anti_conceal = { enabled = false },
+          },
+        },
+        preview = {
+          anti_conceal = { enabled = false },
+        },
+      },
     })
   end,
 }
