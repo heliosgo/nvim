@@ -29,9 +29,13 @@ function Lazy:load_plugins()
   end
 
   self.modules = {}
-  local plugins_file = get_plugins_list()
-  for _, m in ipairs(plugins_file) do
-    self.modules[#self.modules + 1] = require(m)
+  if not vim.env.KITTY_SCROLLBACK then
+    local plugins_file = get_plugins_list()
+    for _, m in ipairs(plugins_file) do
+      self.modules[#self.modules + 1] = require(m)
+    end
+  else
+    self.modules[#self.modules + 1] = require('module.ui.kanagawa')
   end
   require('lazy').setup(self.modules)
 end
