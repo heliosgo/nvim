@@ -38,6 +38,7 @@ return {
         'swift',
         'java',
         'yang',
+        'astro',
       },
       highlight = {
         enable = true,
