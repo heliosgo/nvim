@@ -33,6 +33,7 @@ return {
         css = { 'prettierd', 'prettier', stop_after_first = true },
         astro = { 'prettierd', 'prettier', stop_after_first = true },
         html = { 'prettierd', 'prettier', stop_after_first = true },
+        astro = { 'prettier' },
         toml = { 'taplo' },
         yaml = { 'yamlfmt' },
         proto = { 'buf' },
@@ -42,7 +43,7 @@ return {
           then
             return { 'ruff_format' }
           else
-            return { 'isort', 'black' }
+            return { 'isort', 'black', stop_after_first = true }
           end
         end,
         java = { 'google-java-format' },
