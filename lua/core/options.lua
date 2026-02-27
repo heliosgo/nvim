@@ -83,6 +83,7 @@ local load_options = function()
   vim.opt.listchars = 'tab:»·,nbsp:+,trail:·,extends:→,precedes:←'
   vim.opt.pumblend = 10
   vim.opt.winblend = 10
+  vim.opt.winborder = 'rounded'
 
   vim.opt.undofile = true
   vim.opt.synmaxcol = 2500

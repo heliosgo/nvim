@@ -56,3 +56,15 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd('CmdLineEnter', {
+  callback = function()
+    vim.cmd('set winborder=none')
+  end,
+})
+
+vim.api.nvim_create_autocmd('CmdLineLeave', {
+  callback = function()
+    vim.cmd('set winborder=rounded')
+  end,
+})
