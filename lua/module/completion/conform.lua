@@ -33,7 +33,6 @@ return {
         css = { 'prettierd', 'prettier', stop_after_first = true },
         astro = { 'prettierd', 'prettier', stop_after_first = true },
         html = { 'prettierd', 'prettier', stop_after_first = true },
-        astro = { 'prettier' },
         toml = { 'taplo' },
         yaml = { 'yamlfmt' },
         proto = { 'buf' },
@@ -47,6 +46,7 @@ return {
           end
         end,
         java = { 'google-java-format' },
+        c = { 'clang-format' },
         --        sql = { 'sqlfluff' },
       },
       format_after_save = {

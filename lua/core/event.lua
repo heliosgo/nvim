@@ -5,8 +5,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.api.nvim_create_autocmd('Filetype', {
-  pattern = '*.c,*.cpp,*.lua,*.go,*.rs,*.py,*.ts,*.tsx,*.json,*.cc,*.h,*.jsx,*.js,*.css,*.wxml,*.wxss',
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'c,cpp,lua,go,rs,py,ts,tsx,json,cc,h,jsx,js,css,wxml,wxss',
   callback = function()
     vim.cmd('syntax off')
   end,
